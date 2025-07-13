@@ -1,50 +1,67 @@
-import React from "react";
+import React, { Component } from "react";
 import classes from './style.module.css'
 
-class Results extends React.Component {
+
+interface Person {
+    id: number;
+    name: string;
+    height: number;
+  }
+  
+  interface State {
+    people: Person[];
+    loading: boolean;
+    error: string | null;
+  }
+  
+
+
+class Results extends Component<{}, State> {
+    state: State = {
+      people: [],
+      loading: true,
+      error: null,
+    };
+  
 
 
 
-
-
-
-    componentDidMount(): void {
-        fetch("https://swapi.py4e.com/api/people/")
-  .then(response => response.json())
-  .then(data => console.log(data));
-
-        
+componentDidMount(): void {
+    fetch("https://swapi.py4e.com/api/people/")
+    .then((response) => response.json())
+    
+    .then((data) => {
+      this.setState({ people: data.results});
+    })
+     
     }
-
-
-
-
-
 
 
 
 
     render(): React.ReactNode {
-
+        const { people} = this.state;
+        console.log(people)
+      
         return (
-            <div>
-                <div  className={classes.wrapper }>
-                <h2>Item name</h2>
-                <h2 className={classes.item}>Item Description</h2>
+          <div>
+            {people.slice(0,3).map((person, index) => (
+              <React.Fragment key={index}>
+                <div className={classes.wrapper}>
+                  <h2> Item Name: {person.name}</h2>
+                  <h2 className={classes.item}> Item Description: {person.height}</h2>
                 </div>
+      
                 <div className="wrapper">
-                    <div></div>
-                    <div></div>
-
+                  <div></div>
+                  <div></div>
                 </div>
+              </React.Fragment>
+            ))}
+          </div>
+        );
+      }
 
-                <button>Error</button>
-            </div>
-        )
     }
-
-}
-
-
 
 export default Results;
