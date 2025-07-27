@@ -1,6 +1,36 @@
-import React from "react";
+import type { FC } from "react";
 
-class Header extends React.Component {
+
+
+
+function Header () {
+
+    
+
+    return (
+        <div>
+        <input type="text" />
+
+        <button>Search</button>
+        </div>
+    )
+}
+
+
+
+
+
+
+
+export default Header;
+
+
+
+
+
+
+
+/* class Header extends React.Component {
 
 
 
@@ -19,4 +49,4 @@ class Header extends React.Component {
 
 
 
-export default Header;
+export default Header; */
