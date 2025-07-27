@@ -14,7 +14,7 @@ function Aboutcomp() {
           </div>
           <h3 className="footer-title">2025</h3>
           <div className="footer-block">
-            <a href="https://rs.school/courses/javascript-ru">
+            <a href="https://rs.school/courses/reactjs">
               <img className="rss-img" src={rollLogo} alt="RS School logo" />
             </a>
           </div>
