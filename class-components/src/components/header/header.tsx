@@ -1,4 +1,5 @@
-import type { FC } from "react";
+import React from "react";
+import { Link } from 'react-router-dom';
 
 
 
@@ -12,6 +13,9 @@ function Header () {
         <input type="text" />
 
         <button>Search</button>
+        <Link to="/about">
+        <button>About Page</button>
+        </Link>
         </div>
     )
 }
