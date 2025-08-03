@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/home'
 import About from './pages/About'
 import NotFound from './pages/NotFound'
-
+import { Store } from './store/store'
 
 
 function App() {
