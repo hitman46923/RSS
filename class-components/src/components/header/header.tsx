@@ -1,12 +1,12 @@
 
-import { Link } from 'react-router-dom';
+ import { Link } from 'react-router-dom';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState, AppDispatch } from '../../store/store';
-import { setQuery } from '../../store/reducers/headerReducer';
+import type { RootState, AppDispatch } from '../../store/store';
+import { setQuery } from '../../store/reducers/headerReducer'; 
 
 
-function Header () {
+ function Header () {
 
     const dispatch = useDispatch<AppDispatch>();
     const query = useSelector((state: RootState) => state.search.query);
@@ -36,8 +36,7 @@ function Header () {
 
 
 export default Header;
-
-
+ 
 
 
 

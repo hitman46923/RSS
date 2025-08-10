@@ -1,15 +1,50 @@
 import { useEffect,useState } from 'react';
 import React from 'react';
 import classes from './style.module.css'
+import { useGetPeopleQuery } from '../../services/api'
 
 
-interface Person {
-    id: number;
-    name: string;
-    height: string;
-  }
 
-  function Results () {
+
+function Results () {
+
+  const { data, error, isLoading } = useGetPeopleQuery()
+
+  if (isLoading) return <p>Loading...</p>
+  if (error) return <p>Error</p>
+
+
+  return (
+    <div>
+    {data?.results.slice(0, 3).map((person) => (
+      <React.Fragment key={person.name}>
+        <div className={classes.wrapper}>
+          <h2>Item Name: {person.name}</h2>
+          <h2 className={classes.item}>{person.height}</h2>
+        </div>
+        <div className="wrapper">
+          <div></div>
+          <div></div>
+        </div>
+      </React.Fragment>
+    ))}
+  </div>
+)
+
+}
+
+
+
+export default Results
+
+
+
+
+
+
+
+
+/*   function Results () {
 
 
     const [people, setPeople] = useState<Person[]>([]);
@@ -54,7 +89,7 @@ interface Person {
 
   export default Results
 
-
+ */
 
 
 

@@ -1,10 +1,14 @@
-import { combineReducers,configureStore  } from "@reduxjs/toolkit";
-import searchReducer from './reducers/headerReducer'; 
+import {configureStore  } from "@reduxjs/toolkit";
+import searchReducer from './reducers/headerReducer';
+import { peopleApi } from '../services/api' 
 
 export const store = configureStore({
   reducer: {
-    search: searchReducer, 
+    search: searchReducer,
+    [peopleApi.reducerPath]: peopleApi.reducer, 
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(peopleApi.middleware),
 });
   
 
